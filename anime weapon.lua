@@ -21,7 +21,7 @@ function doHatch()
         while task.wait() and getgenv().autoHatch do
             if getgenv().eggType == "Ninja Egg" then
               game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000001,1)
-            elseif getgenv().eggType == "Piece Egg"
+            elseif getgenv().eggType == "Piece Egg" then
               game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000002,1)
            --else
               --warn("Egg not found")
