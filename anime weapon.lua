@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+local library = loadstring(game:HttpGet(("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3")))()
 
 local w = library:CreateWindow("Anime Weapon Simulator [Beta]") -- Creates the window
 
@@ -29,6 +29,13 @@ function doHatch()
         end
     end)
 end
+
+b:Toggle("Auto Click",function(bool)
+    getgenv().autoClick = bool
+    if bool then
+        doClick()
+    end
+end)
 
 b:Toggle("Auto Hatch",function(bool)
     getgenv().autoHatch = bool
