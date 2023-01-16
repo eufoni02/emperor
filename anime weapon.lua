@@ -4,17 +4,16 @@ local w = library:CreateWindow("Anime Weapon Simulator [Beta]") -- Creates the w
 
 local b = w:CreateFolder("Auto Farm") -- Creates the folder(U will put here your buttons,etc)
 
--- values
-getgenv().autoClick = true
-
 -- function
-function doClick()
-    task.spawn(function()
-        while task.wait() and getgenv().autoClick do
-			game:GetService("ReplicatedStorage").System.SystemClick.Click:FireServer()
+task.spawn(
+    function()
+        while task.wait() do
+            if autoClick then
+                game:GetService("ReplicatedStorage").System.SystemClick.Click:FireServer()
+            end
         end
-    end)
-end
+    end
+)
 
 function doHatch()
     task.spawn(function()
@@ -33,18 +32,18 @@ end
 b:Toggle("Auto Click",function(bool)
     getgenv().autoClick = bool
     if bool then
-        doClick()
+        autoClick();
     end
 end)
 
 b:Toggle("Auto Hatch",function(bool)
     getgenv().autoHatch = bool
     if bool then
-        doHatch()
+        doHatch();
     end
 end)
 
-b:Dropdown("Auto Hatch",{"Ninja Egg", "Piece Egg"},true,function(value)
+b:Dropdown("Select Egg",{"Ninja Egg", "Piece Egg"},true,function(value)
     getgenv().eggType = value
 end)
 
