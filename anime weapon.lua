@@ -1,6 +1,6 @@
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
-local w = library:CreateWindow("[🌊ATLANTIS] Clicker Masters") -- Creates the window
+local w = library:CreateWindow("Anime Weapon Simulator [Beta]") -- Creates the window
 
 local b = w:CreateFolder("Auto Farm") -- Creates the folder(U will put here your buttons,etc)
 
