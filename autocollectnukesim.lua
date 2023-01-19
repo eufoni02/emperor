@@ -14,7 +14,6 @@ b:Label("Made by Emperor",{
 getgenv().autoCollecting = false
 getgenv().doAntiAfk = false
 getgenv().equipBest = false
-getgenv().claimNormalCh = false
 
 local claimNormalChest = game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.ChestService.RE.Claim;
 local equipBestRemote = game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.NukeService.RE.EquipBest;
