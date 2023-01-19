@@ -13,7 +13,11 @@ b:Label("Made by Emperor",{
 
 getgenv().autoCollecting = false
 getgenv().doAntiAfk = false
+getgenv().equipBest = false
+getgenv().claimNormalCh = false
 
+local claimNormalChest = game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.ChestService.RE.Claim;
+local equipBestRemote = game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.NukeService.RE.EquipBest;
 function autoCollect()
     task.spawn(function()
         while task.wait() and getgenv().autoCollecting do
@@ -36,10 +40,35 @@ function antiAfk()
     end)
 end
 
+function autoEquipBest()
+    task.spawn(function()
+        while task.wait() and getgenv().equipBest do
+            equipBestRemote:FireServer()
+        end
+    end)
+end
+
+function claimNChest()
+    task.spawn(function()
+        while task.wait() do
+            claimNormalChest:FireServer(unpack({"NormalChest", ""}))
+        end
+    end)
+end
+
+
+
 b:Toggle("Auto Collect",function(bool)
     getgenv().autoCollecting = bool
     if bool then
         autoCollect();
+    end
+end)
+
+b:Toggle("Equip Best",function(bool)
+    getgenv().equipBest = bool
+    if bool then
+        autoEquipBest();
     end
 end)
 
@@ -48,6 +77,10 @@ b:Toggle("Anti Afk",function(bool)
     if bool then
         antiAfk();
     end
+end)
+
+b:Button("Claim All Chest",function()
+    claimNChest();
 end)
 
 b:DestroyGui()
