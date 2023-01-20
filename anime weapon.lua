@@ -4,6 +4,13 @@ local w = library:CreateWindow("Anime Weapon Simulator [Beta]") -- Creates the w
 
 local b = w:CreateFolder("Auto Farm") -- Creates the folder(U will put here your buttons,etc)
 
+b:Label("UPDATED! Made by Emperor",{
+    TextSize = 12; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
+
 -- function
 task.spawn(
     function()
