@@ -45,7 +45,7 @@ b:Toggle("Auto Hatch",function(bool)
     end
 end)
 
-b:Dropdown("Select Egg",{"Ninja Egg", "Piece Egg"},true,function(value)
+b:Dropdown("Select Egg",{"Ninja Egg", "Piece Egg", "Dragon Egg"},true,function(value)
     getgenv().eggType = value
 end)
 
