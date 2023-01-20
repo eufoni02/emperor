@@ -22,7 +22,9 @@ function doHatch()
               game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000001,1)
             elseif getgenv().eggType == "Piece Egg" then
               game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000002,1)
-           --else
+            elseif getgenv().eggType == "Dragon Egg" then
+              game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000003,1)
+            --else
               --warn("Egg not found")
             end
         end
