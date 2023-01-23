@@ -1,0 +1,6 @@
+if (game.PlaceId == 11430505281) then 
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/eufoni02/emperor/main/main/animeweaponsimulator.lua'))()
+end
+
+--[[elseif (game.PlaceId == 11040063484) --then--
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/HTDBarsi/sharkbait/main/sword.lua"))()]]--
