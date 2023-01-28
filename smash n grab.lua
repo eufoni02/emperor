@@ -17,7 +17,7 @@ b:Label("Made by Emperor",{
     
 })
 
-b:Label("Next Update: Rebirth + Anti Afk",{
+b:Label("UPDATED! GIVE COIN + OP PET",{
     TextSize = 12; -- Self Explaining
     TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
     BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
