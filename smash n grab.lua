@@ -143,5 +143,12 @@ b:Slider("Walkspeed",{
     game.Players.LocalPlayer.Character.Humanoid.Walkspeed = speed
 end)
 
+b:Label("YTB: Dutz",{
+    TextSize = 12; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(139,0,0); -- Self Explaining
+   
+})
+
 b:DestroyGui()
 
