@@ -2,4 +2,6 @@ if (game.PlaceId == 11430505281) then
   loadstring(game:HttpGet('https://raw.githubusercontent.com/eufoni02/emperor/main/main/animeweaponsimulator.lua'))()
 elseif (game.PlaceId == 11939099110) then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/eufoni02/emperor/main/ski%20race.lua"))()
+elseif (game.PlaceId == 7137212917) then
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/eufoni02/emperor/main/flyraceclicker.lua"))()
 end
