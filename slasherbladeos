@@ -45,7 +45,7 @@ if game.PlaceId == 12336036424 then
     function diamond()
         spawn(function()
             while task.wait() and getgenv().diamond do
-               game:GetService("ReplicatedStorage").Remote.Event.DailyMission["[C-S]PlayerGetReward"]:FireServer("Q2")
+               game:GetService("ReplicatedStorage").Remote.Event.Shop["[C-S]TryGetGem"]:FireServer()
             end
         end)
     end
