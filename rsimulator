@@ -1,0 +1,170 @@
+if game.PlaceId == 12574073723 then
+    local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+    local Window = Rayfield:CreateWindow({
+    Name = "Realms! Simulator | DutzYT",
+    LoadingTitle = "Emperor Hub",
+    LoadingSubtitle = "DutzYT",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = nil, -- Create a custom folder for your hub/game
+        FileName = "Big Hub"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "SIRIUS", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD.
+        RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = false, -- Set this to true to use our key system
+    KeySettings = {
+        Title = "Sirius Hub",
+        Subtitle = "Key System",
+        Note = "Join the discord (discord.gg/sirius)",
+        FileName = "SiriusKey",
+        SaveKey = true,
+        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+        Key = "Hello"
+    }
+    })
+
+    local Tab0 = Window:CreateTab("Infomation", 4483362458) -- Title, Image
+    local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+    local Tab1 = Window:CreateTab("Sub-Main", 4483362458) -- Title, Image
+
+    local Section = Tab0:CreateSection("Updates and Information")
+    local Paragraph = Tab0:CreateParagraph({Title = "Version - 0.0.1 ", Content = "[+] New Game"})
+    local Section = Tab0:CreateSection("Bugs")
+    local Label = Tab0:CreateLabel("None")
+    local Section = Tab0:CreateSection("Credit")
+    local Label = Tab0:CreateLabel("Youtube : Dutz ( www.youtube.com/@dutzplaying )")
+
+    -- function
+
+    local egg = game:GetService("ReplicatedStorage").Assets.Eggs
+    local eggtable = {}
+    for i, v in pairs(egg:GetChildren()) do
+        table.insert(eggtable, v.Name)
+    end
+
+    function egg(typeEgg)
+    spawn(function()
+        while task.wait() and getgenv().egghatch do
+            game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.1.0-rc.1"].knit.Services.PetsService.__comm__.RF.HatchEgg:InvokeServer(typeEgg,1)
+        end
+    end)
+    end
+
+    local Section = Tab:CreateSection("Main Features")
+    local Toggle = Tab:CreateToggle({
+        Name = "Kill Aura",
+        CurrentValue = false,
+        Flag = "ac", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().KillAuraEnabled = Value
+                if Value then
+                        while task.wait() and getgenv().KillAuraEnabled do
+                            Enemies = game:GetService("Workspace").RENDER.ENTITIES:GetChildren()
+                            for i = 1, #Enemies do
+                                local v = Enemies[i]
+                                if game.Players.LocalPlayer:DistanceFromCharacter(v.PrimaryPart.Position) < 10 then
+                                    game:GetService("ReplicatedStorage").Packages["_Index"]["sleitnick_knit@1.1.0-rc.1"].knit.Services.PetsService[
+                                        "__comm__"
+                                    ].RE.SwordAttack:FireServer("Enemy", v.Name)
+                                game:GetService("ReplicatedStorage").Packages["_Index"]["sleitnick_knit@1.1.0-rc.1"].knit.Services.PetsService[
+                                        "__comm__"
+                                    ].RE.SwordAttack:FireServer("Enemy", v.Name)
+                                game:GetService("ReplicatedStorage").Packages["_Index"]["sleitnick_knit@1.1.0-rc.1"].knit.Services.PetsService[
+                                        "__comm__"
+                                    ].RE.SwordAttack:FireServer("Enemy", v.Name)
+                                end
+                            end
+                        end
+                    end
+        end,
+    })
+
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Collect",
+        CurrentValue = false,
+        Flag = "ac", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().collect = Value
+                if Value then
+                    while task.wait() and getgenv().collect do
+                    for x, h in pairs(game:GetService("Workspace").DROPS:GetDescendants()) do
+                        if h.ClassName == "Part" then
+                            h.Position = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+                        end
+                    end
+                    end
+                end
+        end,
+    })
+
+    local Section = Tab:CreateSection("Egg Features")
+    -- egg stuff
+    local selectedegg
+    local Dropdown = Tab:CreateDropdown({
+        Name = "Egg",
+        Options = eggtable,
+        CurrentOption = "Select Egg",
+        Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Option)
+            selectedegg = Option
+        end,
+    })
+
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Hatch",
+        CurrentValue = false,
+        Flag = "ar", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().egghatch = Value
+                if Value then
+                    egg(selectedegg);
+                end
+        end,
+    })
+
+    local Section = Tab1:CreateSection("Misc Features")
+    local Button = Tab1:CreateButton({
+        Name = "Redeem Codes, Soon!",
+        Callback = function()
+        -- The function that takes place when the button is pressed
+        end,
+    })
+
+    local Slider = Tab1:CreateSlider({
+        Name = "Player Speed",
+        Range = {0, 100},
+        Increment = 10,
+        Suffix = "Speed",
+        CurrentValue = 26,
+        Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        end,
+    })
+
+    local Section = Tab1:CreateSection("Discord")
+    local Button = Tab1:CreateButton({
+        Name = "Discord",
+        Callback = function()
+            setclipboard("https://discord.gg/BEQnUssW")
+                Rayfield:Notify({
+                Title = "Discord Link Copied!",
+                Content = "Copy and Paste on Your Browser!",
+                Duration = 5,
+                Image = 4483362458,
+                Actions = { -- Notification Buttons
+                    Ignore = {
+                        Name = "Okay!",
+                        Callback = function()
+                        print("The user tapped Okay!")
+                    end
+                },
+                },
+            })
+        end,
+     })
+end
