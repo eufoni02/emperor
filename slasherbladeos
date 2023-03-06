@@ -32,6 +32,7 @@ if game.PlaceId == 12336036424 then
     local Tab1 = Window:CreateTab("Box", 4483362458) -- Title, Image
 
     local Section = Tab0:CreateSection("Updates and Information")
+    local Paragraph = Tab0:CreateParagraph({Title = "Version - 0.0.2 ", Content = "[+] Auto Regen, Diamond still working!"})
     local Paragraph = Tab0:CreateParagraph({Title = "Version - 0.0.1 ", Content = "[+] New Game"})
     local Section = Tab0:CreateSection("Bugs")
     local Label = Tab0:CreateLabel("None")
@@ -45,7 +46,9 @@ if game.PlaceId == 12336036424 then
     function diamond()
         spawn(function()
             while task.wait() and getgenv().diamond do
-               game:GetService("ReplicatedStorage").Remote.Event.Shop["[C-S]TryGetGem"]:FireServer()
+                for i=1, 2 do
+                game:GetService("ReplicatedStorage").Remote.Event.Shop["[C-S]TryGetGem"]:FireServer()
+                end
             end
         end)
     end
@@ -55,7 +58,9 @@ if game.PlaceId == 12336036424 then
     function coin()
         spawn(function()
             while task.wait() and getgenv().coin do
+                for i=1, 8000 do
                 game:GetService("ReplicatedStorage").Remote.Event.Misson["[C-S]GetMissonReward"]:FireServer()
+                end
             end
         end)
     end
@@ -64,12 +69,40 @@ if game.PlaceId == 12336036424 then
     function xp()
         spawn(function()
             while task.wait() and getgenv().xp do
+                for i=1, 10 do
                 game:GetService("ReplicatedStorage").Remote.Event.Fight["[C-S]TakeExp"]:FireServer()
+                end
             end
         end)
     end
 
-    local Section = Tab:CreateSection("Auto Stuff")
+    getgenv().regen = false
+    function regen()
+        spawn(function()
+            while task.wait() and getgenv().regen do
+                local A_1 = 500000
+                local Event = game:GetService("ReplicatedStorage").Remote.Event.Up["[C-S]TryRegen"]
+                Event:FireServer(A_1)
+            end
+        end)
+    end
+
+    local Section = Tab:CreateSection("Player")
+
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Regen",
+        CurrentValue = false,
+        Flag = "ac", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().regen = Value
+                if Value then
+                    regen();
+                end
+        end,
+    })
+    local Label = Tab:CreateLabel("Use Regen Skill")
+
+    local Section = Tab:CreateSection("Resource")
 
     local Toggle = Tab:CreateToggle({
         Name = "Diamonds",
@@ -119,7 +152,8 @@ if game.PlaceId == 12336036424 then
     local Button = Tab:CreateButton({
         Name = "Redeem",
         Callback = function()
-            game:GetService("ReplicatedStorage").CdkRewardFuntion.isPlayerUseCdkRequest:InvokeServer("300Likes")
+        local codes = {"300Likes","1000Likes","2000Likes", "5000Likes"}
+            game:GetService("ReplicatedStorage").CdkRewardFuntion.isPlayerUseCdkRequest:InvokeServer(codes)
         end,
     })
     
