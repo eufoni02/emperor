@@ -64,7 +64,18 @@
                     game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000001,Options)
                 elseif getgenv().eggtype == "Ninja Egg" then
                     game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000002,Options)
-            
+                elseif getgenv().eggtype == "Dragon Egg" then
+                    game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000003,Options)
+                elseif getgenv().eggtype == "Punch Egg" then
+                    game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000004,Options)
+                elseif getgenv().eggtype == "Piece Egg" then
+                    game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000005,Options)
+                elseif getgenv().eggtype == "Star Egg" then
+                    game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000006,Options)
+                elseif getgenv().eggtype == "AOT Egg" then
+                    game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000007,Options)
+                elseif getgenv().eggtype == "??" then
+                    game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(7000008,Options)
                 end
             end
         end)
@@ -101,7 +112,7 @@
     local typehatch = {"1","3"}
     local Dropdown = TabMain:CreateDropdown({
         Name = "Eggs",
-        Options = {"Slayer Egg", "Ninja Egg"},
+        Options = {"Slayer Egg", "Ninja Egg", "Dragon Egg", "Punch Egg", "Piece Egg", "Star Egg", "AOT Egg", ""},
         CurrentOption = "Select Egg",
         Flag = "Egg", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
