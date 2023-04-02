@@ -1,3 +1,8 @@
+    repeat wait() until game:IsLoaded() 
+        game:GetService("Players").LocalPlayer.Idled:connect(function()
+        game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+    end)
+    
     local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
     local Window = Rayfield:CreateWindow({
@@ -195,7 +200,7 @@
                 wait (.2)
                 local part = game.Workspace["RarityGet"] 
                 hrp.CFrame = part.CFrame
-                wait (3)
+                wait (6)
                 local part = game.Workspace["Ascend"] 
                 hrp.CFrame = part.CFrame
                 wait (.2)
@@ -221,7 +226,7 @@
                 wait (.2)
                 local part = game.Workspace["RarityGet"] 
                 hrp.CFrame = part.CFrame
-                wait (3)
+                wait (6)
                 local part = game.Workspace.APMapExpansion2["Transcend"] 
                 hrp.CFrame = part.CFrame
                 wait (.2)
