@@ -1,4 +1,3 @@
--- CREDIT TO SCRIPTERS!
     local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
     local Window = Rayfield:CreateWindow({
@@ -37,7 +36,7 @@
     local Section = TabEarly:CreateSection("Updates and Information")
     local Paragraph = TabEarly:CreateParagraph({Title = "Version 0.1", Content = "Added Script"})
     local Section = TabEarly:CreateSection("Bugs")
-    local Label = TabEarly:CreateLabel("None")
+    local Label = TabEarly:CreateLabel("Fixed Auto Ascend.")
     local Section = TabEarly:CreateSection("Credit")
     local Label = TabEarly:CreateLabel("Youtube : Dutz ( www.youtube.com/@dutzplaying )")
 
@@ -67,7 +66,6 @@
     task.spawn(autofarmnpcs)
 
     function af()
-        if getgenv().npcs == false then
         spawn(function()
             while task.wait() and getgenv().af do
                 wait (.2)
@@ -82,7 +80,6 @@
                 wait (3)
             end
         end)
-    end
     end
 
     function sf()
