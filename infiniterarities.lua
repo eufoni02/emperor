@@ -391,7 +391,7 @@
     local Button = Tab2Main:CreateButton({
         Name = "Transcend (TP)",
         Callback = function()
-            local part = game.Workspace["Transcend"] 
+            local part = game.Workspace.APMapExpansion2["Transcend"] 
             hrp.CFrame = part.CFrame
         end,
     })
