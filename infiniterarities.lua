@@ -34,7 +34,7 @@
 
     -- label & paragraf
     local Section = TabEarly:CreateSection("Updates and Information")
-    local Paragraph = TabEarly:CreateParagraph({Title = "Version 0.1", Content = "Added Script"})
+    local Paragraph = TabEarly:CreateParagraph({Title = "Version 0.2", Content = "[+] Added More Auto [ AP, TP ]\n[+] Added Anti Afk"})
     local Section = TabEarly:CreateSection("Bugs")
     local Label = TabEarly:CreateLabel("Fixed Auto Ascend.")
     local Section = TabEarly:CreateSection("Credit")
@@ -117,7 +117,27 @@
         end)
     end
 
-    -- full farm 
+    function tpf()
+        spawn(function()
+            while task.wait() and getgenv().tpf do
+                wait (.2)
+                local part = game.Workspace["RarityGet"] 
+                hrp.CFrame = part.CFrame
+                wait (3)
+                local part = game.Workspace.APMapExpansion2["Transcend"]
+                hrp.CFrame = part.CFrame
+                wait (.2)
+                local part = game.Workspace["RarityGet"] 
+                hrp.CFrame = part.CFrame
+                wait (3)
+            end
+        end)
+    end
+
+
+
+    -- full farm
+    -- normal farm
     function aff()
         spawn(function()
             while task.wait() and getgenv().aff do
@@ -144,6 +164,7 @@
         end)
     end
 
+    -- PP farm
     function affp()
         spawn(function()
             while task.wait() and getgenv().affp do
@@ -167,6 +188,58 @@
         end)
     end
 
+    -- AP farm
+    function affap()
+        spawn(function()
+            while task.wait() and getgenv().affap do
+                wait (.2)
+                local part = game.Workspace["RarityGet"] 
+                hrp.CFrame = part.CFrame
+                wait (3)
+                local part = game.Workspace["Ascend"] 
+                hrp.CFrame = part.CFrame
+                wait (.2)
+                local part = game.Workspace.APMapExpansion["UpgradeAPMAP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+                local part = game.Workspace.APMapExpansion["UpgradeLuckAP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+                local part = game.Workspace.APMapExpansion["UpgradeSPMAP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+                local part = game.Workspace.APMapExpansion["UpgradePPMAP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+            end
+        end)
+    end
+
+    function afftp()
+        spawn(function()
+            while task.wait() and getgenv().afftp do
+                wait (.2)
+                local part = game.Workspace["RarityGet"] 
+                hrp.CFrame = part.CFrame
+                wait (3)
+                local part = game.Workspace.APMapExpansion2["Transcend"] 
+                hrp.CFrame = part.CFrame
+                wait (.2)
+                local part = game.Workspace.APMapExpansion2["UpgradeAPMTP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+                local part = game.Workspace.APMapExpansion2["UpgradePPMTP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+                local part = game.Workspace.APMapExpansion2["UpgradeSPMTP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+                local part = game.Workspace.APMapExpansion2["UpgradeLuckTP"] 
+                hrp.CFrame = part.CFrame
+                wait (1)
+            end
+        end)
+    end
 
     local Section = TabMain:CreateSection("NPC")
     local Paragraph = TabMain:CreateParagraph({Title = "Recommendation", Content = "Use Scythe, then click attack twice (dash) then active the npcs script."})
@@ -185,7 +258,7 @@
     local Section = TabMain:CreateSection("Auto Farm")
     local Label = TabMain:CreateLabel("USE VIP SERVER [Re - Execute if not work]")
     local Toggle = TabMain:CreateToggle({
-        Name = "Full Basic Auto Farm",
+        Name = "Full Basic Auto Farm (SPM)",
         CurrentValue = false,
         Flag = "aw", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
@@ -197,13 +270,37 @@
     })
 
     local Toggle = TabMain:CreateToggle({
-        Name = "Full Prestige Auto Farm",
+        Name = "Full Prestige Auto Farm (PP)",
         CurrentValue = false,
         Flag = "aw", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
             getgenv().affp = Value
                 if Value then
                     affp();
+                end
+        end,
+    })
+
+    local Toggle = TabMain:CreateToggle({
+        Name = "Full Ascend Auto Farm (AP)",
+        CurrentValue = false,
+        Flag = "aw", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().affap = Value
+                if Value then
+                    affap();
+                end
+        end,
+    })
+
+    local Toggle = TabMain:CreateToggle({
+        Name = "Full Transcend Auto Farm (TP)",
+        CurrentValue = false,
+        Flag = "aw", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().afftp = Value
+                if Value then
+                    afftp();
                 end
         end,
     })
@@ -245,6 +342,18 @@
         end,
     })
 
+    local Toggle = TabMain:CreateToggle({
+        Name = "Auto Transcend Only Farm",
+        CurrentValue = false,
+        Flag = "aw", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().tpf = Value
+                if Value then
+                    tpf();
+                end
+        end,
+    })
+
     local Section = Tab2Main:CreateSection("Teleport")
 
     local Button = Tab2Main:CreateButton({
@@ -275,6 +384,14 @@
         Name = "Ascend (TP)",
         Callback = function()
             local part = game.Workspace["Ascend"] 
+            hrp.CFrame = part.CFrame
+        end,
+    })
+
+    local Button = Tab2Main:CreateButton({
+        Name = "Transcend (TP)",
+        Callback = function()
+            local part = game.Workspace["Transcend"] 
             hrp.CFrame = part.CFrame
         end,
     })
